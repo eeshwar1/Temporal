@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Temporal" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="L4t-31-Zj5" customClass="StatusMenuController" customModule="Temporal" customModuleProvider="target">
+            <connections>
+                <outlet property="TemporalView" destination="GhH-Eu-9u1" id="qS5-8l-6n1"/>
+                <outlet property="statusMenu" destination="She-je-pvx" id="yKd-4Z-P7k"/>
+                <outlet property="themeMenu" destination="rvq-Sj-4Pq" id="ZHy-fM-uoI"/>
+                <outlet property="timeFormat12h" destination="RQF-qF-Mih" id="nyV-od-k7c"/>
+                <outlet property="timeFormat24h" destination="oY3-aq-FVG" id="Ymr-eA-cBk"/>
+            </connections>
+        </customObject>
+        <menu id="She-je-pvx">
+            <items>
+                <menuItem title="Temporal" enabled="NO" id="SKh-x2-KdM">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="EEK-K4-3ME"/>
+                <menuItem title="TemporalView" id="ocB-HW-i3f">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="fs2-UQ-1jS"/>
+                <menuItem title="Time Format" id="MUj-6t-h6l">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Time Format" id="Pfz-zC-hYl">
+                        <items>
+                            <menuItem title="12 hour" id="RQF-qF-Mih">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="timeFormatChanged:" target="L4t-31-Zj5" id="XP2-xg-hMX"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="24 hour" id="oY3-aq-FVG">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="timeFormatChanged:" target="L4t-31-Zj5" id="liV-Pd-SH4"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Theme" id="rvq-Sj-4Pq">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Theme" id="Hrb-bR-xD6"/>
+                </menuItem>
+                <menuItem title="Quit" keyEquivalent="q" id="afE-Iz-E4O">
+                    <connections>
+                        <action selector="quitClicked:" target="L4t-31-Zj5" id="yt4-js-LSC"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-160.5" y="-77.5"/>
+        </menu>
+        <customView id="GhH-Eu-9u1" customClass="TemporalView" customModule="Temporal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="563" height="332"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="9eG-01-wdX" customClass="ClockView" customModule="Temporal" customModuleProvider="target">
+                    <rect key="frame" x="12" y="36" width="273" height="276"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9eG-01-wdX" secondAttribute="height" multiplier="91:92" id="odW-p8-61K"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="EE9-8s-Kua" customClass="CalendarView" customModule="Temporal" customModuleProvider="target">
+                    <rect key="frame" x="293" y="20" width="250" height="280"/>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-6O-xzW">
+                    <rect key="frame" x="14" y="9" width="269" height="29"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="hh:mm:ss AM" id="Oe2-Ju-TIE">
+                        <font key="font" size="20" name="CourierNewPS-BoldMT"/>
+                        <color key="textColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="EE9-8s-Kua" firstAttribute="leading" secondItem="9eG-01-wdX" secondAttribute="trailing" constant="8" id="1HX-IP-GWy"/>
+                <constraint firstItem="EE9-8s-Kua" firstAttribute="leading" secondItem="DIe-6O-xzW" secondAttribute="trailing" constant="12" id="38L-cb-KIP"/>
+                <constraint firstItem="EE9-8s-Kua" firstAttribute="centerY" secondItem="GhH-Eu-9u1" secondAttribute="centerY" constant="6" id="LpD-36-O1x"/>
+                <constraint firstItem="9eG-01-wdX" firstAttribute="leading" secondItem="GhH-Eu-9u1" secondAttribute="leading" constant="12" id="Nlg-Du-9Os"/>
+                <constraint firstItem="EE9-8s-Kua" firstAttribute="top" secondItem="GhH-Eu-9u1" secondAttribute="top" constant="32" id="QXf-rK-1vX"/>
+                <constraint firstItem="EE9-8s-Kua" firstAttribute="leading" secondItem="GhH-Eu-9u1" secondAttribute="leading" constant="293" id="Qh0-bV-MP2"/>
+                <constraint firstItem="DIe-6O-xzW" firstAttribute="centerX" secondItem="9eG-01-wdX" secondAttribute="centerX" id="Udf-cC-R0n"/>
+                <constraint firstAttribute="trailing" secondItem="EE9-8s-Kua" secondAttribute="trailing" constant="20" id="aLt-ht-FFW"/>
+                <constraint firstItem="9eG-01-wdX" firstAttribute="top" secondItem="GhH-Eu-9u1" secondAttribute="top" constant="20" id="ohZ-u9-McX"/>
+                <constraint firstAttribute="bottom" secondItem="DIe-6O-xzW" secondAttribute="bottom" constant="9" id="sxk-fR-stK"/>
+            </constraints>
+            <connections>
+                <outlet property="calendarViewItem" destination="EE9-8s-Kua" id="OHv-WN-5tS"/>
+                <outlet property="clockLabel" destination="DIe-6O-xzW" id="X30-15-Nge"/>
+                <outlet property="clockView" destination="9eG-01-wdX" id="0AG-RA-90N"/>
+            </connections>
+            <point key="canvasLocation" x="53.5" y="209"/>
+        </customView>
+        <menuItem title="Item" id="HhK-M6-Miy">
+            <modifierMask key="keyEquivalentModifierMask"/>
+        </menuItem>
+    </objects>
+</document>
