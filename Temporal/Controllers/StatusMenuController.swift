@@ -28,7 +28,7 @@ class StatusMenuController: NSObject {
     let kVersion: String = "CFBundleShortVersionString"
     let kBuildNumber: String = "CFBundleVersion"
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: 250)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 225)
     
     var timer = Timer()
  
