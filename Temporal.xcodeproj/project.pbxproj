@@ -11,6 +11,11 @@
 		65358ADA2157DE3E0087CA0C /* CalendarDateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65358AD92157DE3E0087CA0C /* CalendarDateItem.swift */; };
 		654CD0832106FCFE00F6FFE3 /* CalendarMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654CD07E2106FCFD00F6FFE3 /* CalendarMonth.swift */; };
 		654CD0862106FCFE00F6FFE3 /* CalendarDateItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654CD0812106FCFE00F6FFE3 /* CalendarDateItem.xib */; };
+		65714A07216D81410067DA12 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65714A06216D81410067DA12 /* NotificationCenter.framework */; };
+		65714A0A216D81410067DA12 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65714A09216D81410067DA12 /* TodayViewController.swift */; };
+		65714A0D216D81410067DA12 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65714A0B216D81410067DA12 /* TodayViewController.xib */; };
+		65714A11216D81410067DA12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65714A0F216D81410067DA12 /* InfoPlist.strings */; };
+		65714A15216D81410067DA12 /* TemporalToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65714A04216D81410067DA12 /* TemporalToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		657BD1EB211F7A1000966D93 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657BD1E9211F7A1000966D93 /* CalendarView.xib */; };
 		657BD1EC211F7A1000966D93 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657BD1EA211F7A1000966D93 /* CalendarView.swift */; };
 		65D340B8212BA0D700B61756 /* TemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D340B7212BA0D700B61756 /* TemporalView.swift */; };
@@ -21,11 +26,42 @@
 		65E550252104B0E700FE56B5 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E550242104B0E700FE56B5 /* StatusMenuController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		65714A13216D81410067DA12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65E550052104AB6700FE56B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65714A03216D81410067DA12;
+			remoteInfo = TemporalToday;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		65714A19216D81410067DA12 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				65714A15216D81410067DA12 /* TemporalToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		65358AD72157DE330087CA0C /* VButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VButton.swift; sourceTree = "<group>"; };
 		65358AD92157DE3E0087CA0C /* CalendarDateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDateItem.swift; sourceTree = "<group>"; };
 		654CD07E2106FCFD00F6FFE3 /* CalendarMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonth.swift; sourceTree = "<group>"; };
 		654CD0812106FCFE00F6FFE3 /* CalendarDateItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDateItem.xib; sourceTree = "<group>"; };
+		65714A04216D81410067DA12 /* TemporalToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TemporalToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		65714A06216D81410067DA12 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		65714A09216D81410067DA12 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		65714A0C216D81410067DA12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
+		65714A0E216D81410067DA12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65714A10216D81410067DA12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65714A12216D81410067DA12 /* TemporalToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemporalToday.entitlements; sourceTree = "<group>"; };
 		657BD1E9211F7A1000966D93 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		657BD1EA211F7A1000966D93 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		65D340B7212BA0D700B61756 /* TemporalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporalView.swift; sourceTree = "<group>"; };
@@ -40,6 +76,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		65714A01216D81410067DA12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65714A07216D81410067DA12 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65E5500A2104AB6700FE56B5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,10 +132,32 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		65714A05216D81410067DA12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65714A06216D81410067DA12 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65714A08216D81410067DA12 /* TemporalToday */ = {
+			isa = PBXGroup;
+			children = (
+				65714A09216D81410067DA12 /* TodayViewController.swift */,
+				65714A0B216D81410067DA12 /* TodayViewController.xib */,
+				65714A0E216D81410067DA12 /* Info.plist */,
+				65714A0F216D81410067DA12 /* InfoPlist.strings */,
+				65714A12216D81410067DA12 /* TemporalToday.entitlements */,
+			);
+			path = TemporalToday;
+			sourceTree = "<group>";
+		};
 		65E550042104AB6700FE56B5 = {
 			isa = PBXGroup;
 			children = (
 				65E5500F2104AB6700FE56B5 /* Temporal */,
+				65714A08216D81410067DA12 /* TemporalToday */,
+				65714A05216D81410067DA12 /* Frameworks */,
 				65E5500E2104AB6700FE56B5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				65E5500D2104AB6700FE56B5 /* Temporal.app */,
+				65714A04216D81410067DA12 /* TemporalToday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +189,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		65714A03216D81410067DA12 /* TemporalToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65714A18216D81410067DA12 /* Build configuration list for PBXNativeTarget "TemporalToday" */;
+			buildPhases = (
+				65714A00216D81410067DA12 /* Sources */,
+				65714A01216D81410067DA12 /* Frameworks */,
+				65714A02216D81410067DA12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TemporalToday;
+			productName = TemporalToday;
+			productReference = 65714A04216D81410067DA12 /* TemporalToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		65E5500C2104AB6700FE56B5 /* Temporal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65E5501B2104AB6800FE56B5 /* Build configuration list for PBXNativeTarget "Temporal" */;
@@ -129,10 +213,12 @@
 				65E550092104AB6700FE56B5 /* Sources */,
 				65E5500A2104AB6700FE56B5 /* Frameworks */,
 				65E5500B2104AB6700FE56B5 /* Resources */,
+				65714A19216D81410067DA12 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				65714A14216D81410067DA12 /* PBXTargetDependency */,
 			);
 			name = Temporal;
 			productName = Temporal2;
@@ -145,10 +231,13 @@
 		65E550052104AB6700FE56B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Venky UL";
 				TargetAttributes = {
+					65714A03216D81410067DA12 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					65E5500C2104AB6700FE56B5 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
@@ -169,11 +258,21 @@
 			projectRoot = "";
 			targets = (
 				65E5500C2104AB6700FE56B5 /* Temporal */,
+				65714A03216D81410067DA12 /* TemporalToday */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		65714A02216D81410067DA12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65714A0D216D81410067DA12 /* TodayViewController.xib in Resources */,
+				65714A11216D81410067DA12 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65E5500B2104AB6700FE56B5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,6 +287,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		65714A00216D81410067DA12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65714A0A216D81410067DA12 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65E550092104AB6700FE56B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,7 +312,31 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		65714A14216D81410067DA12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65714A03216D81410067DA12 /* TemporalToday */;
+			targetProxy = 65714A13216D81410067DA12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		65714A0B216D81410067DA12 /* TodayViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65714A0C216D81410067DA12 /* Base */,
+			);
+			name = TodayViewController.xib;
+			sourceTree = "<group>";
+		};
+		65714A0F216D81410067DA12 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65714A10216D81410067DA12 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		65E550142104AB6800FE56B5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -217,6 +348,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		65714A16216D81410067DA12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TemporalToday/TemporalToday.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 74757A785Z;
+				INFOPLIST_FILE = TemporalToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.venkyul.Temporal.TemporalToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		65714A17216D81410067DA12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TemporalToday/TemporalToday.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 74757A785Z;
+				INFOPLIST_FILE = TemporalToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.venkyul.Temporal.TemporalToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		65E550192104AB6800FE56B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -333,6 +511,7 @@
 		65E5501C2104AB6800FE56B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Temporal/Temporal.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -356,6 +535,7 @@
 		65E5501D2104AB6800FE56B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Temporal/Temporal.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -379,6 +559,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65714A18216D81410067DA12 /* Build configuration list for PBXNativeTarget "TemporalToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65714A16216D81410067DA12 /* Debug */,
+				65714A17216D81410067DA12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		65E550082104AB6700FE56B5 /* Build configuration list for PBXProject "Temporal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
