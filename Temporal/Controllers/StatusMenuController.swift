@@ -28,12 +28,13 @@ class StatusMenuController: NSObject {
     let kVersion: String = "CFBundleShortVersionString"
     let kBuildNumber: String = "CFBundleVersion"
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 225)
     
     var timer = Timer()
  
     let timeFormatter = DateFormatter()
     let dateFormatter = DateFormatter()
+    let dateTimeFormatter = DateFormatter()
     
     var temporalMenuItem: NSMenuItem!
     
@@ -58,9 +59,9 @@ class StatusMenuController: NSObject {
         let defaults = UserDefaults.standard
         let icon = NSImage(named: "Temporal-Icon")
         icon?.isTemplate = true
-        statusItem.image = icon
+        // statusItem.button?.image = icon
         statusItem.menu = statusMenu
-        
+        statusItem.button?.font = NSFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
         let appMenuItem = statusMenu.item(withTitle: "Temporal")
         appMenuItem?.title = "Temporal v\(getVersion())"
         
@@ -77,10 +78,10 @@ class StatusMenuController: NSObject {
         
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
+        dateTimeFormatter.dateFormat = "E d MMM yyy h:mm:ss a"
+        
         showTime()
         
-        
-        // changing from -1 to be of one second
         // Negative value of timeIntervalcauses the timer to default to 0.1 ms
         timer = Timer.scheduledTimer(timeInterval: -1,
                                      target: self,
@@ -136,6 +137,9 @@ class StatusMenuController: NSObject {
         
         temporalView.setTime(time: Time(hours: hours, minutes: minutes, seconds: seconds, timeString: currentTime))
         
+        // statusItem.title = dateTimeFormatter.string(from: date)
+        
+        statusItem.button?.title = dateTimeFormatter.string(from: date)
      
         
         
