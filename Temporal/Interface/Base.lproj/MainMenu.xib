@@ -17,8 +17,9 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="L4t-31-Zj5" customClass="StatusMenuController" customModule="Temporal" customModuleProvider="target">
             <connections>
-                <outlet property="TemporalView" destination="GhH-Eu-9u1" id="qS5-8l-6n1"/>
+                <outlet property="showAsIconMenu" destination="SRS-Fr-KKQ" id="aeJ-r7-dmC"/>
                 <outlet property="statusMenu" destination="She-je-pvx" id="yKd-4Z-P7k"/>
+                <outlet property="temporalView" destination="GhH-Eu-9u1" id="Xee-uN-NG2"/>
                 <outlet property="themeMenu" destination="rvq-Sj-4Pq" id="ZHy-fM-uoI"/>
                 <outlet property="timeFormat12h" destination="RQF-qF-Mih" id="nyV-od-k7c"/>
                 <outlet property="timeFormat24h" destination="oY3-aq-FVG" id="Ymr-eA-cBk"/>
@@ -34,6 +35,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="fs2-UQ-1jS"/>
+                <menuItem title="Show as Icon" id="SRS-Fr-KKQ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showAsIconClicked:" target="L4t-31-Zj5" id="idf-7Q-6BA"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Time Format" id="MUj-6t-h6l">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Time Format" id="Pfz-zC-hYl">
@@ -106,8 +113,5 @@
             </connections>
             <point key="canvasLocation" x="53.5" y="209"/>
         </customView>
-        <menuItem title="Item" id="HhK-M6-Miy">
-            <modifierMask key="keyEquivalentModifierMask"/>
-        </menuItem>
     </objects>
 </document>

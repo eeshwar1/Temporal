@@ -18,6 +18,7 @@
 		65714A15216D81410067DA12 /* TemporalToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65714A04216D81410067DA12 /* TemporalToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		657BD1EB211F7A1000966D93 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657BD1E9211F7A1000966D93 /* CalendarView.xib */; };
 		657BD1EC211F7A1000966D93 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657BD1EA211F7A1000966D93 /* CalendarView.swift */; };
+		65B481AE2172E4B400E02285 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B481AD2172E4B400E02285 /* ClockView.swift */; };
 		65D340B8212BA0D700B61756 /* TemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D340B7212BA0D700B61756 /* TemporalView.swift */; };
 		65E550112104AB6700FE56B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E550102104AB6700FE56B5 /* AppDelegate.swift */; };
 		65E550132104AB6800FE56B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E550122104AB6800FE56B5 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		65714A12216D81410067DA12 /* TemporalToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TemporalToday.entitlements; sourceTree = "<group>"; };
 		657BD1E9211F7A1000966D93 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		657BD1EA211F7A1000966D93 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		65B481AD2172E4B400E02285 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClockView.swift; path = Temporal/Views/ClockView.swift; sourceTree = SOURCE_ROOT; };
 		65D340B7212BA0D700B61756 /* TemporalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporalView.swift; sourceTree = "<group>"; };
 		65E5500D2104AB6700FE56B5 /* Temporal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Temporal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E550102104AB6700FE56B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		65714A08216D81410067DA12 /* TemporalToday */ = {
 			isa = PBXGroup;
 			children = (
+				65B481AD2172E4B400E02285 /* ClockView.swift */,
 				65714A09216D81410067DA12 /* TodayViewController.swift */,
 				65714A0B216D81410067DA12 /* TodayViewController.xib */,
 				65714A0E216D81410067DA12 /* Info.plist */,
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65714A0A216D81410067DA12 /* TodayViewController.swift in Sources */,
+				65B481AE2172E4B400E02285 /* ClockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

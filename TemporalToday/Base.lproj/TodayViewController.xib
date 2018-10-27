@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TodayViewController" customModule="TemporalToday" customModuleProvider="target">
             <connections>
+                <outlet property="clockView" destination="8Kg-J5-gnf" id="P1A-8h-JWS"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -23,7 +24,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="8Kg-J5-gnf" customClass="ClockView" customModule="Temporal">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="8Kg-J5-gnf" customClass="ClockView" customModule="TemporalToday" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="232" height="219"/>
                 </customView>
             </subviews>

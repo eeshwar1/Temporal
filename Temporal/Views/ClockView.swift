@@ -8,8 +8,6 @@
 
 import Cocoa
 
-
-
 @IBDesignable
 
 class ClockView: NSView {
