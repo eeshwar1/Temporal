@@ -9,4 +9,4 @@ This is a small utility program which stays in the menubar and displays a clock 
 * Users can select one of 3 themes for the clock and calendar
     * Night - a dark theme
     * Daylight - a light theme
-    * Rainy - a theme with subtle colors denoting a rainy day (except for the purle :) )
+    * Rainy - a theme with subtle colors denoting a rainy day (except for the purple :) )
