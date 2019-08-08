@@ -10,6 +10,11 @@ import Cocoa
 
 let DEFAULT_THEME = "Night"
 let DEFAULT_TIME_FORMAT = "12h"
+let DEFAULT_DISPLAY_FORMAT = "Icon"
+
+let MENU_SIZE_ICON: CGFloat = 40
+let MENU_SIZE_TIME: CGFloat = 225
+
 
 struct Time {
     var hours: Int
@@ -19,16 +24,25 @@ struct Time {
 }
 class StatusMenuController: NSObject {
     
+    
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var temporalView: TemporalView!
+    @IBOutlet weak var showAsIconMenu: NSMenuItem!
     @IBOutlet weak var timeFormat12h: NSMenuItem!
     @IBOutlet weak var timeFormat24h: NSMenuItem!
     @IBOutlet weak var themeMenu: NSMenuItem!
     
+    var showAsIcon: Bool = true
+    
     let kVersion: String = "CFBundleShortVersionString"
     let kBuildNumber: String = "CFBundleVersion"
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: 225)
+  
+    
+    let statusItem = NSStatusBar.system.statusItem(withLength: MENU_SIZE_TIME)
+    
+    let icon = NSImage(named: "Temporal-Icon")
+    
     
     var timer = Timer()
  
@@ -58,9 +72,7 @@ class StatusMenuController: NSObject {
     
         print("awakeFromNib")
         let defaults = UserDefaults.standard
-        let icon = NSImage(named: "Temporal-Icon")
-        icon?.isTemplate = true
-        // statusItem.button?.image = icon
+        
         statusItem.menu = statusMenu
         statusItem.button?.font = NSFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
         let appMenuItem = statusMenu.item(withTitle: "Temporal")
@@ -76,6 +88,24 @@ class StatusMenuController: NSObject {
         
         timeFormat12h.state = timeFormat == "12h" ? .on : .off
         timeFormat24h.state = timeFormat == "24h" ? .on : .off
+        
+        let displayFormat = defaults.string(forKey: "Display Format") ?? DEFAULT_DISPLAY_FORMAT
+        
+        self.showAsIcon = displayFormat == "Icon" ? true : false
+        
+        showAsIconMenu.state = self.showAsIcon ? .on : .off
+        
+        self.icon?.isTemplate = true
+        
+        if self.showAsIcon {
+            
+           statusItem.button?.image = icon
+           self.statusItem.length = MENU_SIZE_ICON
+        }
+        else
+        {
+            self.statusItem.length = MENU_SIZE_TIME
+        }
         
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
@@ -140,9 +170,9 @@ class StatusMenuController: NSObject {
         
         // statusItem.title = dateTimeFormatter.string(from: date)
         
-        statusItem.button?.title = dateTimeFormatter.string(from: date)
-     
-        
+        if self.showAsIcon == false {
+            statusItem.button?.title = dateTimeFormatter.string(from: date)
+        }
         
         
     }
@@ -204,6 +234,36 @@ class StatusMenuController: NSObject {
         defaults.setValue(timeFormatStyle, forKey: "Time Format")
         
         updateWindow()
+    }
+    
+    @IBAction func showAsIconClicked (_ sender: AnyObject)
+    {
+        
+        
+        self.showAsIcon = !self.showAsIcon
+        
+        self.showAsIconMenu!.state = self.showAsIcon ? .on : .off
+        
+        let defaults = UserDefaults.standard
+
+        let displayFormat = self.showAsIcon ? "Icon" : "Text"
+        defaults.setValue(displayFormat, forKey: "Display Format")
+        
+        self.icon?.isTemplate = true
+        
+        if self.showAsIcon {
+            
+            statusItem.button?.title = ""
+            statusItem.button?.image = icon
+            self.statusItem.length = MENU_SIZE_ICON
+        }
+        else
+        {
+            statusItem.button?.image = nil
+            self.statusItem.length = MENU_SIZE_TIME
+        }
+        
+        
     }
 
 }
