@@ -240,10 +240,11 @@
 				TargetAttributes = {
 					65714A03216D81410067DA12 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1030;
 					};
 					65E5500C2104AB6700FE56B5 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -372,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.venkyul.Temporal.TemporalToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -395,7 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.venkyul.Temporal.TemporalToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -530,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.venkyul.Temporal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_BUILDER = Easwar;
 			};
@@ -554,7 +555,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.venkyul.Temporal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_BUILDER = Easwar;
 			};
