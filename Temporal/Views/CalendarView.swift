@@ -136,6 +136,7 @@ class CalendarView: NSView {
     
     func displayCalendar()
     {
+        print("displayCalendar called")
         self.setToday()
         
         self.calendarMonth.setMonthAndYear(month: self.displayMonth,
