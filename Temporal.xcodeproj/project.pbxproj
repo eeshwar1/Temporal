@@ -359,7 +359,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 74757A785Z;
+				DEVELOPMENT_TEAM = XZ9VWRV6AW;
 				INFOPLIST_FILE = TemporalToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,7 +383,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 74757A785Z;
+				DEVELOPMENT_TEAM = XZ9VWRV6AW;
 				INFOPLIST_FILE = TemporalToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,7 +521,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 74757A785Z;
+				DEVELOPMENT_TEAM = XZ9VWRV6AW;
 				INFOPLIST_FILE = Temporal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,7 +545,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 74757A785Z;
+				DEVELOPMENT_TEAM = XZ9VWRV6AW;
 				INFOPLIST_FILE = Temporal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
