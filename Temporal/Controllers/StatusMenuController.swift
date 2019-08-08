@@ -55,7 +55,8 @@ class StatusMenuController: NSObject {
     
     override func awakeFromNib()
     {
-        
+    
+        print("awakeFromNib")
         let defaults = UserDefaults.standard
         let icon = NSImage(named: "Temporal-Icon")
         icon?.isTemplate = true
@@ -148,6 +149,8 @@ class StatusMenuController: NSObject {
     
     func updateWindow()
     {
+        
+        print("updateWindow called")
         let defaults = UserDefaults.standard
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
