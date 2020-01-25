@@ -11,5 +11,16 @@ This is a small utility program which stays in the menubar and displays a clock 
     * Daylight - a light theme
     * Rainy - a theme with subtle colors denoting a rainy day (except for the purple :) )
     
-    
-![Screenshot](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20screenshot.png)
+# Screenshots
+
+Rainy
+
+![Rainy Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Rainy%20Theme.png)
+
+Daylight
+
+![Daylight Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Daylight%20Theme.png)
+
+Night
+
+![Night Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Night%20Theme.png)
