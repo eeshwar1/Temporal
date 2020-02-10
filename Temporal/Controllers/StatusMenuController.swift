@@ -70,7 +70,6 @@ class StatusMenuController: NSObject {
     override func awakeFromNib()
     {
     
-        print("awakeFromNib")
         let defaults = UserDefaults.standard
         
         statusItem.menu = statusMenu
@@ -92,6 +91,8 @@ class StatusMenuController: NSObject {
         let displayFormat = defaults.string(forKey: "Display Format") ?? DEFAULT_DISPLAY_FORMAT
         
         self.showAsIcon = displayFormat == "Icon" ? true : false
+        
+        self.showAsIcon = true
         
         showAsIconMenu.state = self.showAsIcon ? .on : .off
         
@@ -128,7 +129,7 @@ class StatusMenuController: NSObject {
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
         
-        for themeName in CalendarView.calendarThemeColors.keys
+        for themeName in Themes.calendarThemeColors.keys
         {
             self.themeMenu.submenu!.addItem(withTitle: themeName, action: #selector(themeChanged), keyEquivalent: "").target = self
            
@@ -179,8 +180,7 @@ class StatusMenuController: NSObject {
     
     func updateWindow()
     {
-        
-        print("updateWindow called")
+    
         let defaults = UserDefaults.standard
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
@@ -238,7 +238,6 @@ class StatusMenuController: NSObject {
     
     @IBAction func showAsIconClicked (_ sender: AnyObject)
     {
-        
         
         self.showAsIcon = !self.showAsIcon
         
