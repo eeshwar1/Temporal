@@ -25,6 +25,7 @@
 		65E550162104AB6800FE56B5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E550142104AB6800FE56B5 /* MainMenu.xib */; };
 		65E550212104B00A00FE56B5 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5501F2104B00A00FE56B5 /* ClockView.swift */; };
 		65E550252104B0E700FE56B5 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E550242104B0E700FE56B5 /* StatusMenuController.swift */; };
+		65E8F34A23F06600009D3CD2 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8F34923F06600009D3CD2 /* Themes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		65E550182104AB6800FE56B5 /* Temporal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Temporal.entitlements; sourceTree = "<group>"; };
 		65E5501F2104B00A00FE56B5 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		65E550242104B0E700FE56B5 /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		65E8F34923F06600009D3CD2 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				65358AD92157DE3E0087CA0C /* CalendarDateItem.swift */,
 				657BD1EA211F7A1000966D93 /* CalendarView.swift */,
+				65E8F34923F06600009D3CD2 /* Themes.swift */,
 				65D340B7212BA0D700B61756 /* TemporalView.swift */,
 				65E5501F2104B00A00FE56B5 /* ClockView.swift */,
 			);
@@ -235,7 +238,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Venky UL";
 				TargetAttributes = {
 					65714A03216D81410067DA12 = {
@@ -308,6 +311,7 @@
 				654CD0832106FCFE00F6FFE3 /* CalendarMonth.swift in Sources */,
 				657BD1EC211F7A1000966D93 /* CalendarView.swift in Sources */,
 				65D340B8212BA0D700B61756 /* TemporalView.swift in Sources */,
+				65E8F34A23F06600009D3CD2 /* Themes.swift in Sources */,
 				65358AD82157DE340087CA0C /* VButton.swift in Sources */,
 				65E550212104B00A00FE56B5 /* ClockView.swift in Sources */,
 				65E550252104B0E700FE56B5 /* StatusMenuController.swift in Sources */,
@@ -361,6 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XZ9VWRV6AW;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = TemporalToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XZ9VWRV6AW;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = TemporalToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,7 +438,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer: venkyul.appdev@gmail.com (3KC4T75LLU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -451,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -492,7 +498,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer: venkyul.appdev@gmail.com (3KC4T75LLU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -505,8 +511,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -523,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XZ9VWRV6AW;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Temporal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,6 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XZ9VWRV6AW;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Temporal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
