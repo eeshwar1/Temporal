@@ -10,7 +10,6 @@ import Cocoa
 
 class CalendarView: NSView {
 
-    
     @IBOutlet var calendarViewItem: NSView!
     @IBOutlet weak var buttonMonthName: NSButton!
     
@@ -26,41 +25,15 @@ class CalendarView: NSView {
     
     fileprivate var dayNames: [String] = ["Su","Mo","Tu","We","Th","Fr","Sa"]
     
-    static let calendarThemeColors = ["Night": ["backgroundColor":
-                                                       NSColor.black,
-                                                            "textColor": NSColor.white,
-                                                            "titleTextColor":
-                                                                NSColor.white,
-                                                            "highlightColor": NSColor.brown,
-                                                            "textHighlightColor":
-                                                       NSColor.orange],
-                                                  "Daylight": ["backgroundColor":        NSColor.lightGray,
-                                                          "textColor": NSColor.black,
-                                                          "titleTextColor":
-                                                       NSColor.white,
-                                                          "highlightColor": NSColor.red,
-                                                          "textHighlightColor":
-                                                            NSColor.red],
-                                                  "Rainy":["backgroundColor":        NSColor.lightGray,
-                                                           "textColor":
-                                                      NSColor.black,
-                                                           "titleTextColor":
-                                                      NSColor.white,
-                                                           "highlightColor":
-                                                      NSColor.purple,
-                                                           "textHighlightColor":
-                                                      NSColor.purple
-                                                           ]]
-    
-
-    
     var itemSizeFactor: CGFloat = 10.0
     {
         didSet {
-            configureCollectionView()
+          configureCollectionView()
         }
     }
     var datesPerSection: Int = 7
+    var numOfRows: Int = 7
+    
     
     @IBOutlet weak var collectionView: NSCollectionView!
     
@@ -77,14 +50,13 @@ class CalendarView: NSView {
     
     required init?(coder decoder: NSCoder) {
         
-        super.init(coder: decoder)        
+        super.init(coder: decoder)
        
-        commonInit()
+       commonInit()
         
     }
     
     required override init(frame frameRect: NSRect) {
-        
         
         super.init(frame: frameRect)
         
@@ -99,13 +71,13 @@ class CalendarView: NSView {
         
         self.calendarViewItem.frame = contentFrame
         
-        self.addSubview(self.calendarViewItem)
-        
         configureCollectionView()
         
-        let date = Date()
-        setDate(date: date)
-        
+        self.addSubview(self.calendarViewItem)
+
+        setDate(date: Date())
+         
+            
     }
     
     func hideControls()
@@ -132,15 +104,15 @@ class CalendarView: NSView {
         
         self.displayCalendar()
         
+        
     }
     
     func displayCalendar()
     {
-        print("displayCalendar called")
+        
         self.setToday()
         
-        self.calendarMonth.setMonthAndYear(month: self.displayMonth,
-                                           year: self.displayYear)
+        self.calendarMonth.setMonthAndYear(month: self.displayMonth,year: self.displayYear)
         
         self.collectionView.reloadData()
         
@@ -152,7 +124,6 @@ class CalendarView: NSView {
         
          let today = Date()
          let calendar = Calendar.current
-        
         
          let todayMonth = calendar.component(.month, from: today)
          let todayYear =  calendar.component(.year, from: today)
@@ -169,39 +140,43 @@ class CalendarView: NSView {
         
         let flowLayout = NSCollectionViewFlowLayout()
         
-        let cView = collectionView
+        let cView = collectionView!
         
-        let itemWidth = cView!.frame.width / self.itemSizeFactor
+        let itemWidth = cView.frame.width / self.itemSizeFactor
         
-        let itemHeight = cView!.frame.width / self.itemSizeFactor
+        let itemHeight = cView.frame.width / self.itemSizeFactor
     
         flowLayout.itemSize = NSSize(width: itemWidth,
                                      height: itemHeight)
+        
+        // print("Flow Layout Item Size: \(flowLayout.itemSize)")
      
-        let hInset = collectionView.frame.width / 100
-        let vInset = collectionView.frame.width / 150
+        let hInset = cView.frame.width / 100
+        let vInset = cView.frame.width / 150
         
-        
-       flowLayout.sectionInset = NSEdgeInsets(top: vInset,
+        flowLayout.sectionInset = NSEdgeInsets(top: vInset,
                                               left: hInset,
                                               bottom: vInset,
                                               right: hInset)
-        flowLayout.minimumInteritemSpacing = collectionView.frame.width / 2000
+
+        flowLayout.minimumInteritemSpacing = flowLayout.itemSize.width/35
         
-        flowLayout.minimumLineSpacing = collectionView.frame.height / 2000
+        // print("Minimum Interitem Spacing: \(flowLayout.minimumInteritemSpacing)")
+        
+        flowLayout.minimumLineSpacing = cView.frame.height / 2000
         
        
-        collectionView.collectionViewLayout = flowLayout
+        cView.collectionViewLayout = flowLayout
         
-        collectionView.wantsLayer = true
+        cView.wantsLayer = true
         
-        collectionView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        cView.layer?.backgroundColor = NSColor.windowFrameColor.cgColor
         
     }
     
     func setTheme(theme: String)
     {
-        if CalendarView.calendarThemeColors[theme] != nil
+        if Themes.calendarThemeColors[theme] != nil
         {
             self.theme  = theme
             self.displayCalendar()
@@ -341,8 +316,7 @@ extension CalendarView: NSCollectionViewDataSource {
     
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
       
-        
-        return 7
+        return numOfRows
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {

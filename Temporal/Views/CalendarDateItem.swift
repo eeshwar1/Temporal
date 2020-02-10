@@ -16,17 +16,15 @@ import Cocoa
     var borderColor: NSColor = NSColor.black
     var highlightColor: NSColor = NSColor.orange
     var textHighlightColor: NSColor = NSColor.red
+    var secondaryTextColor: NSColor = NSColor.lightGray
     
     
     var theme = "Night"
     
- 
-
     var dateText: String = "" {
         didSet {
             guard isViewLoaded else { return }
             textField?.stringValue = dateText
-            
             
         }
     }
@@ -38,10 +36,11 @@ import Cocoa
             if isToday
             {
                 self.textColor = self.textHighlightColor
+                view.layer?.backgroundColor = self.highlightColor.blended(withFraction: 0.7, of: NSColor.white)?.cgColor
+
                 
             }
         
-            view.layer?.backgroundColor = self.backColor.cgColor
             view.layer?.borderColor = self.borderColor.cgColor
             self.textField?.textColor = self.textColor
         }
@@ -54,12 +53,9 @@ import Cocoa
     {
         didSet {
             
-            
-            
             if otherMonthDate
             {
-                self.textColor = NSColor.init(calibratedWhite: 1.0, alpha: 0.6)
-                
+                self.textColor = self.secondaryTextColor
             }
             
             view.layer?.backgroundColor = self.backColor.cgColor
@@ -84,10 +80,6 @@ import Cocoa
                 self.textField?.textColor = self.textColor
             
             
-            
-    
-            
-                
             }
         
     }
@@ -101,14 +93,10 @@ import Cocoa
         
         view.layer?.cornerRadius = view.frame.height / 20
 
-    
         let trackingArea = NSTrackingArea(rect: self.view.bounds, options: [.activeInActiveApp, .mouseEnteredAndExited, .mouseMoved], owner: self, userInfo: nil)
         self.view.addTrackingArea(trackingArea)
         
      
-        
-        
-        
     }
     
     override func mouseEntered(with event: NSEvent) {
@@ -125,7 +113,7 @@ import Cocoa
     func setTheme(theme: String)
     
     {
-        if let themeColors = CalendarView.calendarThemeColors[theme]
+        if let themeColors = Themes.calendarThemeColors[theme]
         {
             self.theme = theme
             self.backColor = themeColors["backgroundColor"]!
@@ -133,6 +121,7 @@ import Cocoa
             self.titleTextColor =  themeColors["titleTextColor"]!
             self.highlightColor = themeColors["highlightColor"]!
             self.textHighlightColor = themeColors["textHighlightColor"]!
+            self.secondaryTextColor = themeColors["secondaryTextColor"]!
     
         }
     
