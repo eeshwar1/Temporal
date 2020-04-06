@@ -24,3 +24,7 @@ Daylight
 Night
 
 ![Night Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Night%20Theme.png)
+
+System
+
+![System Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20System%20Theme.png)
