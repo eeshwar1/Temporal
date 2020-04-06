@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,9 +19,8 @@
                 <outlet property="showAsIconMenu" destination="SRS-Fr-KKQ" id="aeJ-r7-dmC"/>
                 <outlet property="statusMenu" destination="She-je-pvx" id="yKd-4Z-P7k"/>
                 <outlet property="temporalView" destination="GhH-Eu-9u1" id="Xee-uN-NG2"/>
-                <outlet property="themeMenu" destination="rvq-Sj-4Pq" id="ZHy-fM-uoI"/>
-                <outlet property="timeFormat12h" destination="RQF-qF-Mih" id="nyV-od-k7c"/>
-                <outlet property="timeFormat24h" destination="oY3-aq-FVG" id="Ymr-eA-cBk"/>
+                <outlet property="themeControl" destination="vHQ-0f-VSq" id="qqE-2d-32I"/>
+                <outlet property="timeFormatControl" destination="CfR-yQ-gTC" id="DPu-fo-oBY"/>
             </connections>
         </customObject>
         <menu id="She-je-pvx">
@@ -41,29 +39,6 @@
                         <action selector="showAsIconClicked:" target="L4t-31-Zj5" id="idf-7Q-6BA"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Time Format" id="MUj-6t-h6l">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Time Format" id="Pfz-zC-hYl">
-                        <items>
-                            <menuItem title="12 hour" id="RQF-qF-Mih">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="timeFormatChanged:" target="L4t-31-Zj5" id="XP2-xg-hMX"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="24 hour" id="oY3-aq-FVG">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="timeFormatChanged:" target="L4t-31-Zj5" id="liV-Pd-SH4"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Theme" id="rvq-Sj-4Pq">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Theme" id="Hrb-bR-xD6"/>
-                </menuItem>
                 <menuItem title="Quit" keyEquivalent="q" id="afE-Iz-E4O">
                     <connections>
                         <action selector="quitClicked:" target="L4t-31-Zj5" id="yt4-js-LSC"/>
@@ -73,45 +48,80 @@
             <point key="canvasLocation" x="-160.5" y="-77.5"/>
         </menu>
         <customView id="GhH-Eu-9u1" customClass="TemporalView" customModule="Temporal" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="563" height="332"/>
+            <rect key="frame" x="0.0" y="0.0" width="335" height="448"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="9eG-01-wdX" customClass="ClockView" customModule="Temporal" customModuleProvider="target">
-                    <rect key="frame" x="12" y="36" width="273" height="276"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="9eG-01-wdX" secondAttribute="height" multiplier="91:92" id="odW-p8-61K"/>
-                    </constraints>
-                </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="EE9-8s-Kua" customClass="CalendarView" customModule="Temporal" customModuleProvider="target">
-                    <rect key="frame" x="293" y="20" width="250" height="280"/>
-                </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-6O-xzW">
-                    <rect key="frame" x="14" y="9" width="269" height="29"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="hh:mm:ss AM" id="Oe2-Ju-TIE">
-                        <font key="font" size="20" name="CourierNewPS-BoldMT"/>
-                        <color key="textColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <stackView distribution="equalSpacing" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyi-P0-SbH">
+                    <rect key="frame" x="10" y="10" width="315" height="428"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="EE9-8s-Kua" customClass="CalendarView" customModule="Temporal" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="113" width="315" height="315"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="EE9-8s-Kua" secondAttribute="height" multiplier="300:300" id="jHd-Cj-Os7"/>
+                            </constraints>
+                        </customView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-6O-xzW">
+                            <rect key="frame" x="61" y="66" width="194" height="35"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="hh:mm:ss AM" id="Oe2-Ju-TIE">
+                                <font key="font" size="30" name="HelveticaNeue"/>
+                                <color key="textColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-yQ-gTC">
+                            <rect key="frame" x="111" y="31" width="93" height="24"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="G16-fL-tUQ">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment label="12h"/>
+                                    <segment label="24h" selected="YES" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="selectTimeFormat:" target="L4t-31-Zj5" id="osQ-oV-adB"/>
+                            </connections>
+                        </segmentedControl>
+                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vHQ-0f-VSq">
+                            <rect key="frame" x="33" y="-2" width="250" height="24"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Ex0-xZ-kKm">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment label="Daylight"/>
+                                    <segment label="Night" selected="YES" tag="1"/>
+                                    <segment label="Rainy"/>
+                                    <segment label="System"/>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="themeChanged:" target="L4t-31-Zj5" id="Ons-yo-IBh"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="EE9-8s-Kua" firstAttribute="leading" secondItem="9eG-01-wdX" secondAttribute="trailing" constant="8" id="1HX-IP-GWy"/>
-                <constraint firstItem="EE9-8s-Kua" firstAttribute="leading" secondItem="DIe-6O-xzW" secondAttribute="trailing" constant="12" id="38L-cb-KIP"/>
-                <constraint firstItem="EE9-8s-Kua" firstAttribute="centerY" secondItem="GhH-Eu-9u1" secondAttribute="centerY" constant="6" id="LpD-36-O1x"/>
-                <constraint firstItem="9eG-01-wdX" firstAttribute="leading" secondItem="GhH-Eu-9u1" secondAttribute="leading" constant="12" id="Nlg-Du-9Os"/>
-                <constraint firstItem="EE9-8s-Kua" firstAttribute="top" secondItem="GhH-Eu-9u1" secondAttribute="top" constant="32" id="QXf-rK-1vX"/>
-                <constraint firstItem="EE9-8s-Kua" firstAttribute="leading" secondItem="GhH-Eu-9u1" secondAttribute="leading" constant="293" id="Qh0-bV-MP2"/>
-                <constraint firstItem="DIe-6O-xzW" firstAttribute="centerX" secondItem="9eG-01-wdX" secondAttribute="centerX" id="Udf-cC-R0n"/>
-                <constraint firstAttribute="trailing" secondItem="EE9-8s-Kua" secondAttribute="trailing" constant="20" id="aLt-ht-FFW"/>
-                <constraint firstItem="9eG-01-wdX" firstAttribute="top" secondItem="GhH-Eu-9u1" secondAttribute="top" constant="20" id="ohZ-u9-McX"/>
-                <constraint firstAttribute="bottom" secondItem="DIe-6O-xzW" secondAttribute="bottom" constant="9" id="sxk-fR-stK"/>
+                <constraint firstItem="hyi-P0-SbH" firstAttribute="top" secondItem="GhH-Eu-9u1" secondAttribute="top" constant="10" id="15i-PX-h6B"/>
+                <constraint firstItem="hyi-P0-SbH" firstAttribute="leading" secondItem="GhH-Eu-9u1" secondAttribute="leading" constant="10" id="DVj-Nb-7HO"/>
+                <constraint firstAttribute="trailing" secondItem="hyi-P0-SbH" secondAttribute="trailing" constant="10" id="kA4-JB-y1d"/>
+                <constraint firstAttribute="bottom" secondItem="hyi-P0-SbH" secondAttribute="bottom" constant="10" id="r3S-xe-g4k"/>
             </constraints>
             <connections>
                 <outlet property="calendarViewItem" destination="EE9-8s-Kua" id="OHv-WN-5tS"/>
                 <outlet property="clockLabel" destination="DIe-6O-xzW" id="X30-15-Nge"/>
-                <outlet property="clockView" destination="9eG-01-wdX" id="0AG-RA-90N"/>
             </connections>
-            <point key="canvasLocation" x="53.5" y="209"/>
+            <point key="canvasLocation" x="-71" y="319"/>
         </customView>
     </objects>
 </document>
