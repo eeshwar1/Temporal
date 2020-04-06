@@ -6,10 +6,11 @@ This is a small utility program which stays in the menubar and displays a clock 
 # Settings
 
 * Time can be set to be displayed in 12 hour or 24 hour format
-* Users can select one of 3 themes for the clock and calendar
+* Users can select one of 4 themes
     * Night - a dark theme
     * Daylight - a light theme
     * Rainy - a theme with subtle colors denoting a rainy day (except for the purple :) )
+    * System - mimics the system colors of macOS
     
 # Screenshots
 
