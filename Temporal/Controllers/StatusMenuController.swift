@@ -15,6 +15,12 @@ let DEFAULT_DISPLAY_FORMAT = "Icon"
 let MENU_SIZE_ICON: CGFloat = 40
 let MENU_SIZE_TIME: CGFloat = 225
 
+struct DateTimeFormat {
+    static let longDateTime = "E d MMM yyy h:mm:ss a"
+    static let shortDateTime = "E d MMM hh:mm a"
+    static let shortTime = "hh:mm a"
+    static let shortDate =  "MM/dd/yyyy"
+}
 
 struct Time {
     var hours: Int
@@ -28,9 +34,12 @@ class StatusMenuController: NSObject {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var temporalView: TemporalView!
     @IBOutlet weak var showAsIconMenu: NSMenuItem!
-    @IBOutlet weak var timeFormat12h: NSMenuItem!
-    @IBOutlet weak var timeFormat24h: NSMenuItem!
+  
     @IBOutlet weak var themeMenu: NSMenuItem!
+    
+    @IBOutlet weak var labelTimeFormat: NSTextField!
+    @IBOutlet weak var timeFormatControl: NSSegmentedControl!
+    @IBOutlet weak var themeControl: NSSegmentedControl!
     
     var showAsIcon: Bool = true
     
@@ -70,7 +79,6 @@ class StatusMenuController: NSObject {
     override func awakeFromNib()
     {
     
-        print("awakeFromNib")
         let defaults = UserDefaults.standard
         
         statusItem.menu = statusMenu
@@ -84,14 +92,15 @@ class StatusMenuController: NSObject {
         // Set timer format
         
         let timeFormat = defaults.string(forKey: "Time Format") ?? DEFAULT_TIME_FORMAT
+        
         timeFormatter.dateFormat = timeFormat == "12h" ? "hh:mm:ss a": "HH:mm:ss"
         
-        timeFormat12h.state = timeFormat == "12h" ? .on : .off
-        timeFormat24h.state = timeFormat == "24h" ? .on : .off
         
         let displayFormat = defaults.string(forKey: "Display Format") ?? DEFAULT_DISPLAY_FORMAT
         
         self.showAsIcon = displayFormat == "Icon" ? true : false
+        
+        self.showAsIcon = true
         
         showAsIconMenu.state = self.showAsIcon ? .on : .off
         
@@ -109,7 +118,7 @@ class StatusMenuController: NSObject {
         
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
-        dateTimeFormatter.dateFormat = "E d MMM yyy h:mm:ss a"
+        dateTimeFormatter.dateFormat = DateTimeFormat.shortDateTime
         
         showTime()
         
@@ -128,11 +137,13 @@ class StatusMenuController: NSObject {
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
         
-        for themeName in CalendarView.calendarThemeColors.keys
+        /*
+        for themeName in Themes.calendarThemeColors.keys
         {
             self.themeMenu.submenu!.addItem(withTitle: themeName, action: #selector(themeChanged), keyEquivalent: "").target = self
            
         }
+        
         
         for item in self.themeMenu.submenu!.items
         {
@@ -145,8 +156,11 @@ class StatusMenuController: NSObject {
                 item.state = .off
             }
         }
+        */
         
         self.temporalView.calendarViewItem.showToday(self)
+        
+        updateWindow()
         
     }
 
@@ -179,66 +193,44 @@ class StatusMenuController: NSObject {
     
     func updateWindow()
     {
-        
-        print("updateWindow called")
+    
         let defaults = UserDefaults.standard
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
         
         let timeFormat = defaults.string(forKey: "Time Format") ?? DEFAULT_TIME_FORMAT
         timeFormatter.dateFormat = timeFormat == "12h" ? "hh:mm:ss a": "HH:mm:ss"
+        
+        
     }
     
     // Actions
     
-    @objc func themeChanged(_ sender: AnyObject)
+    @IBAction func themeChanged(_ sender: AnyObject)
     {
-        let sendingMenu = sender as! NSMenuItem
         
-        let themeName = sendingMenu.title
+        let themeName = themeControl.label(forSegment: themeControl.selectedSegment)
         
         let defaults = UserDefaults.standard
         defaults.setValue(themeName, forKey: "Theme")
-        
-        for item in self.themeMenu.submenu!.items
-        {
-            if item.title == themeName
-            {
-                item.state = .on
-            }
-            else
-            {
-                item.state = .off
-            }
-        }
+ 
         updateWindow()
     }
-    @IBAction func timeFormatChanged(_ sender: AnyObject)
-    {
-        let sendingMenu = sender as! NSMenuItem
-        let timeFormatStyle: String
+
+    
+    @IBAction func selectTimeFormat(_ sender: AnyObject) {
         
-        if sendingMenu.title == "12 hour"
-        {
-            timeFormatStyle = "12h"
-            self.timeFormat12h.state = .on
-            self.timeFormat24h.state = .off
-        }
-        else
-        {
-            timeFormatStyle = "24h"
-            self.timeFormat12h.state = .off
-            self.timeFormat24h.state = .on
-        }
+        let timeFormatStyle = timeFormatControl.label(forSegment: timeFormatControl.selectedSegment)!
+        
         let defaults = UserDefaults.standard
         defaults.setValue(timeFormatStyle, forKey: "Time Format")
         
         updateWindow()
+        
+        
     }
-    
     @IBAction func showAsIconClicked (_ sender: AnyObject)
     {
-        
         
         self.showAsIcon = !self.showAsIcon
         

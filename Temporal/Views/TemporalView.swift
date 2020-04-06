@@ -14,7 +14,7 @@ class TemporalView: NSView {
 
     @IBOutlet weak var clockLabel: NSTextField!
     
-    @IBOutlet weak var clockView: ClockView!
+    // @IBOutlet weak var clockView: ClockView!
     
     @IBOutlet var calendarViewItem: CalendarView!
     
@@ -44,7 +44,7 @@ class TemporalView: NSView {
     {
         self.clockLabel.stringValue = time.timeString
         
-        self.clockView.setTime(hours: time.hours, minutes: time.minutes, seconds: time.seconds)
+        // self.clockView.setTime(hours: time.hours, minutes: time.minutes, seconds: time.seconds)
         
         self.calendarViewItem.setToday()
         
@@ -54,7 +54,7 @@ class TemporalView: NSView {
     
     func setTheme(theme: String)
     {
-        self.clockView.setTheme(theme: theme)
+        // self.clockView.setTheme(theme: theme)
         self.calendarViewItem.setTheme(theme: theme)
     }
     
