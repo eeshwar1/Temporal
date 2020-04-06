@@ -25,7 +25,7 @@ class CalendarView: NSView {
     
     fileprivate var dayNames: [String] = ["Su","Mo","Tu","We","Th","Fr","Sa"]
     
-    var itemSizeFactor: CGFloat = 10.0
+    var itemSizeFactor: CGFloat = 7.5
     {
         didSet {
           configureCollectionView()
@@ -144,28 +144,35 @@ class CalendarView: NSView {
         
         let itemWidth = cView.frame.width / self.itemSizeFactor
         
-        let itemHeight = cView.frame.width / self.itemSizeFactor
+        let itemHeight = cView.frame.height / self.itemSizeFactor * 0.95
     
         flowLayout.itemSize = NSSize(width: itemWidth,
                                      height: itemHeight)
         
         // print("Flow Layout Item Size: \(flowLayout.itemSize)")
      
-        let hInset = cView.frame.width / 100
-        let vInset = cView.frame.width / 150
+        // let hInset = cView.frame.width / 100
+        // let vInset = cView.frame.height / 100
+        
+        let hInset: CGFloat = 1.0
+        let vInset: CGFloat = 1.0
         
         flowLayout.sectionInset = NSEdgeInsets(top: vInset,
                                               left: hInset,
                                               bottom: vInset,
                                               right: hInset)
 
-        flowLayout.minimumInteritemSpacing = flowLayout.itemSize.width/35
+        // flowLayout.minimumInteritemSpacing = flowLayout.itemSize.width/20
+        
+        flowLayout.minimumInteritemSpacing = 1.0
+        flowLayout.minimumLineSpacing = 1.0
         
         // print("Minimum Interitem Spacing: \(flowLayout.minimumInteritemSpacing)")
         
-        flowLayout.minimumLineSpacing = cView.frame.height / 2000
+        // flowLayout.minimumLineSpacing = cView.frame.height / 1000
         
-       
+        // flowLayout.minimumLineSpacing = flowLayout.itemSize.width/10
+        
         cView.collectionViewLayout = flowLayout
         
         cView.wantsLayer = true
