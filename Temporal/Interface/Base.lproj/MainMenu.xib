@@ -88,14 +88,14 @@
                             </connections>
                         </segmentedControl>
                         <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vHQ-0f-VSq">
-                            <rect key="frame" x="33" y="-2" width="250" height="24"/>
+                            <rect key="frame" x="121" y="-2" width="73" height="24"/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Ex0-xZ-kKm">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment label="Daylight"/>
-                                    <segment label="Night" selected="YES" tag="1"/>
-                                    <segment label="Rainy"/>
-                                    <segment label="System"/>
+                                    <segment/>
+                                    <segment selected="YES" tag="1"/>
+                                    <segment/>
+                                    <segment/>
                                 </segments>
                             </segmentedCell>
                             <connections>
