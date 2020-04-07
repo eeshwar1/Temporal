@@ -134,7 +134,7 @@ class StatusMenuController: NSObject {
         showTime()
         
         // Negative value of timeIntervalcauses the timer to default to 0.1 ms
-        timer = Timer.scheduledTimer(timeInterval: 1,
+        timer = Timer.scheduledTimer(timeInterval: 0.5,
                                      target: self,
                                      selector: #selector(showTime),
                                      userInfo: nil,
@@ -144,19 +144,24 @@ class StatusMenuController: NSObject {
         // add timer to RunLoop for handling during event loops
         RunLoop.current.add(timer, forMode: RunLoop.Mode.eventTracking)
         
+       
         
-        let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
-        self.temporalView.setTheme(theme: theme)
+        self.themeControl.segmentCount = Themes.calendarThemeColors.keys.count
         
-        /*
-        for themeName in Themes.calendarThemeColors.keys
+        var themeIndex = 0
+        let themeNames = Themes.calendarThemeColors.keys.sorted()
+        for themeName in themeNames
         {
-            self.themeMenu.submenu!.addItem(withTitle: themeName, action: #selector(themeChanged), keyEquivalent: "").target = self
-           
+            self.themeControl.setLabel(themeName, forSegment: themeIndex)
+            themeIndex = themeIndex + 1
+      
         }
         
-        
-        */
+    
+        let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
+        self.temporalView.setTheme(theme: theme)
+               
+        self.themeControl.selectSegment(withLabel: theme)
         
         self.temporalView.calendarViewItem.showToday(self)
         
@@ -236,7 +241,7 @@ class StatusMenuController: NSObject {
         let aboutWindowController = NSWindowController(windowNibName: "About", owner: self)
         
         aboutWindowController.showWindow(self)
-        
+        NSApp.activate(ignoringOtherApps: true)
         
     }
     @IBAction func showAsIconClicked (_ sender: AnyObject)
@@ -245,7 +250,7 @@ class StatusMenuController: NSObject {
         self.showAsIcon = !self.showAsIcon
         
         self.showAsIconMenu!.state = self.showAsIcon ? .on : .off
-        
+
         let defaults = UserDefaults.standard
 
         let displayFormat = self.showAsIcon ? "Icon" : "Text"
@@ -268,4 +273,23 @@ class StatusMenuController: NSObject {
         
     }
 
+}
+
+extension NSSegmentedControl {
+    
+    func selectSegment(withLabel label: String)
+    {
+        guard self.segmentCount > 0 else {
+            return
+        }
+        
+        for seg in 0...self.segmentCount - 1 {
+            if self.label(forSegment: seg) == label {
+                self.setSelected(true, forSegment: seg)
+                break
+            }
+        }
+        return
+    }
+    
 }
