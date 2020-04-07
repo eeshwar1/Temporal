@@ -14,18 +14,18 @@ This is a small utility program which stays in the menubar and displays a clock 
     
 # Screenshots
 
-Rainy
+## Rainy
 
 ![Rainy Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Rainy%20Theme.png)
 
-Daylight
+## Daylight
 
 ![Daylight Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Daylight%20Theme.png)
 
-Night
+## Night
 
 ![Night Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20Night%20Theme.png)
 
-System
+## System
 
 ![System Theme](https://github.com/eeshwar1/Temporal/blob/master/Temporal%20-%20System%20Theme.png)
