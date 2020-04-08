@@ -13,36 +13,60 @@
             <rect key="contentRect" x="196" y="240" width="326" height="199"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="326" height="186"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="326" height="199"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gfc-dA-I02">
-                        <rect key="frame" x="10" y="10" width="306" height="166"/>
+                        <rect key="frame" x="10" y="10" width="306" height="179"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCV-7m-pAg">
-                                <rect key="frame" x="103" y="66" width="100" height="100"/>
+                                <rect key="frame" x="103" y="79" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="rht-jk-zgA"/>
                                     <constraint firstAttribute="height" constant="100" id="uwJ-jm-usX"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Temporal-Logo" id="r7h-JZ-Ncn"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-NM-d9q">
-                                <rect key="frame" x="92" y="23" width="123" height="35"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Temporal" id="P5g-4b-Q9J">
-                                    <font key="font" metaFont="system" size="30"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bqN-s4-vBB">
-                                <rect key="frame" x="42" y="0.0" width="222" height="15"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" title="https://github.com/eeshwar1/Temporal" allowsEditingTextAttributes="YES" id="C8s-23-278">
-                                    <font key="font" metaFont="system" size="12"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOk-uX-u2b">
+                                <rect key="frame" x="67" y="24" width="172" height="47"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-NM-d9q">
+                                        <rect key="frame" x="-2" y="6" width="123" height="35"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Temporal" id="P5g-4b-Q9J">
+                                            <font key="font" metaFont="system" size="30"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5wD-7a-1ry">
+                                        <rect key="frame" x="125" y="16" width="49" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="v1.0(6)" id="FN4-0B-bH4">
+                                            <font key="font" metaFont="systemSemibold" size="13"/>
+                                            <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YuS-ih-bHi" customClass="VLinkButton" customModule="Temporal" customModuleProvider="target">
+                                <rect key="frame" x="82" y="0.0" width="143" height="16"/>
+                                <buttonCell key="cell" type="bevel" title="View source on GitHub" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="a87-lz-XE9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="contentTintColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="link" value="https://github.com/eeshwar1/Temporal"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <visibilityPriorities>
                             <integer value="1000"/>
