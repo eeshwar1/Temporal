@@ -19,6 +19,8 @@
 		657BD1EB211F7A1000966D93 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657BD1E9211F7A1000966D93 /* CalendarView.xib */; };
 		657BD1EC211F7A1000966D93 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657BD1EA211F7A1000966D93 /* CalendarView.swift */; };
 		65D340B8212BA0D700B61756 /* TemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D340B7212BA0D700B61756 /* TemporalView.swift */; };
+		65D4B2F5243D45D400F91656 /* NSSegmentedControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4B2F4243D45D400F91656 /* NSSegmentedControl+Extensions.swift */; };
+		65D4B2F7243D480D00F91656 /* VLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4B2F6243D480D00F91656 /* VLinkButton.swift */; };
 		65DD9CFF243AE0F2003F556E /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DD9CFE243AE0F2003F556E /* About.xib */; };
 		65DD9D01243B68CC003F556E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD9D00243B68CC003F556E /* CalendarView.swift */; };
 		65DD9D04243B68F0003F556E /* CalendarDateItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DD9D02243B68EF003F556E /* CalendarDateItem.xib */; };
@@ -74,6 +76,8 @@
 		657BD1E9211F7A1000966D93 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		657BD1EA211F7A1000966D93 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		65D340B7212BA0D700B61756 /* TemporalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporalView.swift; sourceTree = "<group>"; };
+		65D4B2F4243D45D400F91656 /* NSSegmentedControl+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSegmentedControl+Extensions.swift"; sourceTree = "<group>"; };
+		65D4B2F6243D480D00F91656 /* VLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLinkButton.swift; sourceTree = "<group>"; };
 		65DD9CFE243AE0F2003F556E /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
 		65DD9D00243B68CC003F556E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Temporal/Views/CalendarView.swift; sourceTree = SOURCE_ROOT; };
 		65DD9D02243B68EF003F556E /* CalendarDateItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarDateItem.xib; path = Temporal/Interface/CalendarDateItem.xib; sourceTree = SOURCE_ROOT; };
@@ -144,10 +148,12 @@
 			isa = PBXGroup;
 			children = (
 				65358AD72157DE330087CA0C /* VButton.swift */,
+				65D4B2F6243D480D00F91656 /* VLinkButton.swift */,
 				657BD1E9211F7A1000966D93 /* CalendarView.xib */,
 				654CD0812106FCFE00F6FFE3 /* CalendarDateItem.xib */,
 				65E550142104AB6800FE56B5 /* MainMenu.xib */,
 				65DD9CFE243AE0F2003F556E /* About.xib */,
+				65D4B2F4243D45D400F91656 /* NSSegmentedControl+Extensions.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -340,6 +346,8 @@
 				657BD1EC211F7A1000966D93 /* CalendarView.swift in Sources */,
 				65D340B8212BA0D700B61756 /* TemporalView.swift in Sources */,
 				65E8F34A23F06600009D3CD2 /* Themes.swift in Sources */,
+				65D4B2F5243D45D400F91656 /* NSSegmentedControl+Extensions.swift in Sources */,
+				65D4B2F7243D480D00F91656 /* VLinkButton.swift in Sources */,
 				65358AD82157DE340087CA0C /* VButton.swift in Sources */,
 				65E550212104B00A00FE56B5 /* ClockView.swift in Sources */,
 				65E550252104B0E700FE56B5 /* StatusMenuController.swift in Sources */,
