@@ -275,21 +275,4 @@ class StatusMenuController: NSObject {
 
 }
 
-extension NSSegmentedControl {
-    
-    func selectSegment(withLabel label: String)
-    {
-        guard self.segmentCount > 0 else {
-            return
-        }
-        
-        for seg in 0...self.segmentCount - 1 {
-            if self.label(forSegment: seg) == label {
-                self.setSelected(true, forSegment: seg)
-                break
-            }
-        }
-        return
-    }
-    
-}
+
