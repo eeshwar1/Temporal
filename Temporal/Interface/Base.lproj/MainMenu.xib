@@ -39,6 +39,12 @@
                         <action selector="showAsIconClicked:" target="L4t-31-Zj5" id="idf-7Q-6BA"/>
                     </connections>
                 </menuItem>
+                <menuItem title="About Temporal" id="3aN-my-WdZ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showAbout:" target="L4t-31-Zj5" id="bE6-d2-cMu"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" keyEquivalent="q" id="afE-Iz-E4O">
                     <connections>
                         <action selector="quitClicked:" target="L4t-31-Zj5" id="yt4-js-LSC"/>
@@ -82,14 +88,14 @@
                             </connections>
                         </segmentedControl>
                         <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vHQ-0f-VSq">
-                            <rect key="frame" x="33" y="-2" width="250" height="24"/>
+                            <rect key="frame" x="121" y="-2" width="73" height="24"/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Ex0-xZ-kKm">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment label="Daylight"/>
-                                    <segment label="Night" selected="YES" tag="1"/>
-                                    <segment label="Rainy"/>
-                                    <segment label="System"/>
+                                    <segment/>
+                                    <segment selected="YES" tag="1"/>
+                                    <segment/>
+                                    <segment/>
                                 </segments>
                             </segmentedCell>
                             <connections>
@@ -121,7 +127,7 @@
                 <outlet property="calendarViewItem" destination="EE9-8s-Kua" id="OHv-WN-5tS"/>
                 <outlet property="clockLabel" destination="DIe-6O-xzW" id="X30-15-Nge"/>
             </connections>
-            <point key="canvasLocation" x="-71" y="319"/>
+            <point key="canvasLocation" x="-71.5" y="319"/>
         </customView>
     </objects>
 </document>

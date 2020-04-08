@@ -8,12 +8,7 @@
 
 import Cocoa
 
-let DEFAULT_THEME = "Night"
-let DEFAULT_TIME_FORMAT = "12h"
-let DEFAULT_DISPLAY_FORMAT = "Icon"
 
-let MENU_SIZE_ICON: CGFloat = 40
-let MENU_SIZE_TIME: CGFloat = 225
 
 struct DateTimeFormat {
     static let longDateTime = "E d MMM yyy h:mm:ss a"
@@ -22,12 +17,25 @@ struct DateTimeFormat {
     static let shortDate =  "MM/dd/yyyy"
 }
 
+enum TimeFormat: Int {
+    case h12 = 0
+    case h24 = 1
+}
+
 struct Time {
     var hours: Int
     var minutes: Int
     var seconds: Int
     var timeString: String
 }
+
+let DEFAULT_THEME = "Night"
+let DEFAULT_TIME_FORMAT: TimeFormat = .h12 // 12h
+let DEFAULT_DISPLAY_FORMAT = "Icon"
+
+let MENU_SIZE_ICON: CGFloat = 40
+let MENU_SIZE_TIME: CGFloat = 225
+
 class StatusMenuController: NSObject {
     
     
@@ -36,8 +44,7 @@ class StatusMenuController: NSObject {
     @IBOutlet weak var showAsIconMenu: NSMenuItem!
   
     @IBOutlet weak var themeMenu: NSMenuItem!
-    
-    @IBOutlet weak var labelTimeFormat: NSTextField!
+
     @IBOutlet weak var timeFormatControl: NSSegmentedControl!
     @IBOutlet weak var themeControl: NSSegmentedControl!
     
@@ -46,7 +53,7 @@ class StatusMenuController: NSObject {
     let kVersion: String = "CFBundleShortVersionString"
     let kBuildNumber: String = "CFBundleVersion"
     
-  
+    
     
     let statusItem = NSStatusBar.system.statusItem(withLength: MENU_SIZE_TIME)
     
@@ -61,6 +68,7 @@ class StatusMenuController: NSObject {
     
     var temporalMenuItem: NSMenuItem!
     
+    var timeFormat: TimeFormat = .h12
     
     @IBAction func quitClicked(_ sender: Any) {
         
@@ -91,12 +99,15 @@ class StatusMenuController: NSObject {
         
         // Set timer format
         
-        let timeFormat = defaults.string(forKey: "Time Format") ?? DEFAULT_TIME_FORMAT
+        let timeFormat = TimeFormat(rawValue: defaults.integer(forKey: "Time Format")) ?? DEFAULT_TIME_FORMAT
         
-        timeFormatter.dateFormat = timeFormat == "12h" ? "hh:mm:ss a": "HH:mm:ss"
+        timeFormatter.dateFormat = timeFormat == .h12 ? "hh:mm:ss a": "HH:mm:ss"
         
+        timeFormatControl.selectSegment(withTag: timeFormat.rawValue)
         
         let displayFormat = defaults.string(forKey: "Display Format") ?? DEFAULT_DISPLAY_FORMAT
+        
+        
         
         self.showAsIcon = displayFormat == "Icon" ? true : false
         
@@ -123,7 +134,7 @@ class StatusMenuController: NSObject {
         showTime()
         
         // Negative value of timeIntervalcauses the timer to default to 0.1 ms
-        timer = Timer.scheduledTimer(timeInterval: -1,
+        timer = Timer.scheduledTimer(timeInterval: 0.5,
                                      target: self,
                                      selector: #selector(showTime),
                                      userInfo: nil,
@@ -133,30 +144,24 @@ class StatusMenuController: NSObject {
         // add timer to RunLoop for handling during event loops
         RunLoop.current.add(timer, forMode: RunLoop.Mode.eventTracking)
         
+       
         
+        self.themeControl.segmentCount = Themes.calendarThemeColors.keys.count
+        
+        var themeIndex = 0
+        let themeNames = Themes.calendarThemeColors.keys.sorted()
+        for themeName in themeNames
+        {
+            self.themeControl.setLabel(themeName, forSegment: themeIndex)
+            themeIndex = themeIndex + 1
+      
+        }
+        
+    
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
-        
-        /*
-        for themeName in Themes.calendarThemeColors.keys
-        {
-            self.themeMenu.submenu!.addItem(withTitle: themeName, action: #selector(themeChanged), keyEquivalent: "").target = self
-           
-        }
-        
-        
-        for item in self.themeMenu.submenu!.items
-        {
-            if item.title == theme
-            {
-                item.state = .on
-            }
-            else
-            {
-                item.state = .off
-            }
-        }
-        */
+               
+        self.themeControl.selectSegment(withLabel: theme)
         
         self.temporalView.calendarViewItem.showToday(self)
         
@@ -198,8 +203,9 @@ class StatusMenuController: NSObject {
         let theme = defaults.string(forKey: "Theme") ?? DEFAULT_THEME
         self.temporalView.setTheme(theme: theme)
         
-        let timeFormat = defaults.string(forKey: "Time Format") ?? DEFAULT_TIME_FORMAT
-        timeFormatter.dateFormat = timeFormat == "12h" ? "hh:mm:ss a": "HH:mm:ss"
+        let timeFormat = TimeFormat(rawValue: defaults.integer(forKey: "Time Format")) ?? DEFAULT_TIME_FORMAT
+            
+        timeFormatter.dateFormat = timeFormat == .h12 ? "hh:mm:ss a": "HH:mm:ss"
         
         
     }
@@ -220,13 +226,22 @@ class StatusMenuController: NSObject {
     
     @IBAction func selectTimeFormat(_ sender: AnyObject) {
         
-        let timeFormatStyle = timeFormatControl.label(forSegment: timeFormatControl.selectedSegment)!
+        let timeFormat = timeFormatControl.selectedSegment
         
         let defaults = UserDefaults.standard
-        defaults.setValue(timeFormatStyle, forKey: "Time Format")
+        defaults.setValue(timeFormat, forKey: "Time Format")
         
         updateWindow()
         
+        
+    }
+    
+    @IBAction func showAbout(_ sender: AnyObject) {
+        
+        let aboutWindowController = NSWindowController(windowNibName: "About", owner: self)
+        
+        aboutWindowController.showWindow(self)
+        NSApp.activate(ignoringOtherApps: true)
         
     }
     @IBAction func showAsIconClicked (_ sender: AnyObject)
@@ -235,7 +250,7 @@ class StatusMenuController: NSObject {
         self.showAsIcon = !self.showAsIcon
         
         self.showAsIconMenu!.state = self.showAsIcon ? .on : .off
-        
+
         let defaults = UserDefaults.standard
 
         let displayFormat = self.showAsIcon ? "Icon" : "Text"
@@ -258,4 +273,23 @@ class StatusMenuController: NSObject {
         
     }
 
+}
+
+extension NSSegmentedControl {
+    
+    func selectSegment(withLabel label: String)
+    {
+        guard self.segmentCount > 0 else {
+            return
+        }
+        
+        for seg in 0...self.segmentCount - 1 {
+            if self.label(forSegment: seg) == label {
+                self.setSelected(true, forSegment: seg)
+                break
+            }
+        }
+        return
+    }
+    
 }
