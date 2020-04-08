@@ -33,14 +33,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="fs2-UQ-1jS"/>
-                <menuItem title="Show as Icon" id="SRS-Fr-KKQ">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Show as Icon" keyEquivalent="i" id="SRS-Fr-KKQ">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                     <connections>
                         <action selector="showAsIconClicked:" target="L4t-31-Zj5" id="idf-7Q-6BA"/>
                     </connections>
                 </menuItem>
-                <menuItem title="About Temporal" id="3aN-my-WdZ">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="About Temporal" keyEquivalent="a" id="3aN-my-WdZ">
                     <connections>
                         <action selector="showAbout:" target="L4t-31-Zj5" id="bE6-d2-cMu"/>
                     </connections>
