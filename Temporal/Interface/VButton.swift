@@ -12,7 +12,7 @@ import Cocoa
 
 class VButton: NSButton {
 
-    @IBInspectable var backColor: NSColor = NSColor.black
+    @IBInspectable var backColor: NSColor = NSColor.controlAccentColor
     
     @IBInspectable var buttonShape: Int = 1
     
@@ -50,67 +50,66 @@ class VButton: NSButton {
             
             case 1:
                    
-                           self.buttonPath = NSBezierPath()
-                           
-                           if direction == 1 // forward
-                           {
-                               self.buttonPath.move(to: NSPoint(x: shapeBounds.minX,y: shapeBounds.minY))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.maxX - shapeBounds.width *  0.4, y: shapeBounds.minY
-                               + shapeBounds.height/2))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.minX, y: shapeBounds.maxY))
-                               
-                           }
-                           else
-                           {
-                               self.buttonPath.move(to: NSPoint(x: shapeBounds.maxX,y: shapeBounds.minY))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.minY + shapeBounds.height/2))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.maxX, y: shapeBounds.maxY))
-                              
-                           }
+               self.buttonPath = NSBezierPath()
+               
+               if direction == 1 // forward
+               {
+                   self.buttonPath.move(to: NSPoint(x: shapeBounds.minX,y: shapeBounds.minY))
+                   self.buttonPath.line(to: NSPoint(x: shapeBounds.maxX - shapeBounds.width *  0.4, y: shapeBounds.minY
+                   + shapeBounds.height/2))
+                   self.buttonPath.line(to: NSPoint(x: shapeBounds.minX, y: shapeBounds.maxY))
+                   
+               }
+               else
+               {
+                   self.buttonPath.move(to: NSPoint(x: shapeBounds.maxX,y: shapeBounds.minY))
+                   self.buttonPath.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.minY + shapeBounds.height/2))
+                   self.buttonPath.line(to: NSPoint(x: shapeBounds.maxX, y: shapeBounds.maxY))
+                  
+               }
+           
+                       
+               case 2:
+                   
+                   self.buttonPath = NSBezierPath()
+                   
+                   if direction == 1 // forward
+                   {
+                   
+                       self.buttonPath.move(to: NSPoint(x: shapeBounds.minX,y: shapeBounds.minY))
+                       self.buttonPath.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.6, y: shapeBounds.minY + shapeBounds.height/2))
+                       self.buttonPath.line(to: NSPoint(x: shapeBounds.minX, y: shapeBounds.maxY))
+                      
+                       
+                   
+                       let secondArrow = NSBezierPath()
+                       secondArrow.move(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.minY))
+                       secondArrow.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width, y: shapeBounds.minY + shapeBounds.height/2))
+                       secondArrow.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.maxY))
+                      
+                       
+               
+                       self.buttonPath.append(secondArrow)
+                       
+                   }
+                   else
+                   {
+                       self.buttonPath.move(to: NSPoint(x: shapeBounds.maxX,y: shapeBounds.minY))
+                       self.buttonPath.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.minY + shapeBounds.height/2))
+                       self.buttonPath.line(to: NSPoint(x: shapeBounds.maxX, y: shapeBounds.maxY))
                        
                        
-                       case 2:
-                           
-                           self.buttonPath = NSBezierPath()
-                           
-                           if direction == 1 // forward
-                           {
-                           
-                               self.buttonPath.move(to: NSPoint(x: shapeBounds.minX,y: shapeBounds.minY))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.6, y: shapeBounds.minY + shapeBounds.height/2))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.minX, y: shapeBounds.maxY))
-                              
-                               
-                           
-                               let secondArrow = NSBezierPath()
-                               secondArrow.move(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.minY))
-                               secondArrow.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width, y: shapeBounds.minY + shapeBounds.height/2))
-                               secondArrow.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.maxY))
-                              
-                               
                        
-                               self.buttonPath.append(secondArrow)
-                               
-                           }
-                           else
-                           {
-                               self.buttonPath.move(to: NSPoint(x: shapeBounds.maxX,y: shapeBounds.minY))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.4, y: shapeBounds.minY + shapeBounds.height/2))
-                               self.buttonPath.line(to: NSPoint(x: shapeBounds.maxX, y: shapeBounds.maxY))
-                               
-                               
-                               
-                               let secondArrow = NSBezierPath()
-                               secondArrow.move(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.6, y: shapeBounds.minY))
-                               secondArrow.line(to: NSPoint(x: shapeBounds.minX, y: shapeBounds.minY +  shapeBounds.height/2))
-                               secondArrow.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.6, y: shapeBounds.maxY))
-                               
-                               
-                               
-                               self.buttonPath.append(secondArrow)
-                               
-                               
-                           }
+                       let secondArrow = NSBezierPath()
+                       secondArrow.move(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.6, y: shapeBounds.minY))
+                       secondArrow.line(to: NSPoint(x: shapeBounds.minX, y: shapeBounds.minY +  shapeBounds.height/2))
+                       secondArrow.line(to: NSPoint(x: shapeBounds.minX + shapeBounds.width * 0.6, y: shapeBounds.maxY))
+                       
+                       
+                       self.buttonPath.append(secondArrow)
+                       
+                       
+                   }
             case 3:
         
                 self.buttonPath = NSBezierPath()

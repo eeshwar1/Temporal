@@ -32,8 +32,8 @@ enum Themes
                      "textHighlightColor": NSColor.purple,
                      "secondaryTextColor": NSColor.darkGray],
         "System": ["backgroundColor" : NSColor.controlColor,
-                   "textColor": NSColor.black,
-                   "titleTextColor": NSColor.white,
+                   "textColor": NSColor.controlTextColor,
+                   "titleTextColor": NSColor.controlAccentColor,
                    "highlightColor": NSColor.headerColor,
                    "textHighlightColor": NSColor.systemBlue,
                    "secondaryTextColor": NSColor.lightGray]]

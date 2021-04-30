@@ -102,11 +102,13 @@ import Cocoa
     override func mouseEntered(with event: NSEvent) {
         view.layer?.backgroundColor = NSColor.yellow.cgColor
         self.textField?.textColor = NSColor.black
+        print("mouseEntered")
     }
     
     override func mouseExited(with event: NSEvent) {
         view.layer?.backgroundColor = self.backColor.cgColor
          self.textField?.textColor = self.textColor
+        print("mouseExited")
         
     }
     

@@ -76,7 +76,10 @@ class CalendarView: NSView {
         self.addSubview(self.calendarViewItem)
 
         setDate(date: Date())
-         
+        
+        let trackingArea = NSTrackingArea(rect: self.bounds, options: [.activeAlways, .mouseEnteredAndExited, .mouseMoved], owner: self, userInfo: nil)
+        self.addTrackingArea(trackingArea)
+        
             
     }
     
@@ -315,6 +318,17 @@ class CalendarView: NSView {
         self.displayYear = self.todayYear
         
         self.displayCalendar()
+        
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+       
+        print("mouseEntered")
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+    
+        print("mouseExited")
         
     }
 }

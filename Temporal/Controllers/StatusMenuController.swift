@@ -87,6 +87,8 @@ class StatusMenuController: NSObject {
     override func awakeFromNib()
     {
     
+        // print("awakeFromNib")
+        
         let defaults = UserDefaults.standard
         
         statusItem.menu = statusMenu
@@ -106,8 +108,6 @@ class StatusMenuController: NSObject {
         timeFormatControl.selectSegment(withTag: timeFormat.rawValue)
         
         let displayFormat = defaults.string(forKey: "Display Format") ?? DEFAULT_DISPLAY_FORMAT
-        
-        
         
         self.showAsIcon = displayFormat == "Icon" ? true : false
         
