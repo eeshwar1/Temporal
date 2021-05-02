@@ -43,6 +43,8 @@ class CalendarView: NSView {
     var todayMonth: Int = 0
     var todayYear: Int = 0
     
+    var today: Date = Date()
+    
     var displayMonth: Int = 0
     var displayYear: Int = 0
     
@@ -125,12 +127,12 @@ class CalendarView: NSView {
     func setToday()
     {
         
-         let today = Date()
+         self.today = Date()
          let calendar = Calendar.current
         
-         let todayMonth = calendar.component(.month, from: today)
-         let todayYear =  calendar.component(.year, from: today)
-         let todayDay =  calendar.component(.day, from: today)
+         let todayMonth = calendar.component(.month, from: self.today)
+         let todayYear = calendar.component(.year, from: self.today)
+         let todayDay = calendar.component(.day, from: self.today)
          
          self.todayMonth = todayMonth
          self.todayYear = todayYear
@@ -414,12 +416,14 @@ extension CalendarView: NSCollectionViewDataSource {
             
         }
         
+        
         // Check for today's date and set flag for highlighting
         if currentIndex <= self.calendarMonth.dates.count - 1 && calendarDateItem.titleItem == false
         {
             if self.calendarMonth.dates[currentIndex] == self.todayDay &&
                 self.calendarMonth.month == self.todayMonth &&
-                self.calendarMonth.year == self.todayYear
+                self.calendarMonth.year == self.todayYear &&
+                calendarDateItem.otherMonthDate == false
             {
                 calendarDateItem.isToday = true
             }
@@ -427,7 +431,9 @@ extension CalendarView: NSCollectionViewDataSource {
             {
                 calendarDateItem.isToday = false
             }
+            
         }
+        
         
         if currentIndex >= self.calendarMonth.dates.count
         {
@@ -439,6 +445,8 @@ extension CalendarView: NSCollectionViewDataSource {
         }
         
         return calendarDateItem
+        
+       
         
     }
     
